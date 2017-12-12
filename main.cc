@@ -25,7 +25,7 @@ int main(){
 
 void countLine(char* pName){
 
-	int num; //number of lines
+	int num = 0; //number of lines
 	string line;
 
 	ifstream myfile(pName);
@@ -41,21 +41,17 @@ void countLine(char* pName){
 }
 
 void countChar(char* pName){
-	int num; //number of characters
-	char c;
+	int num = 0; //number of characters
+//	char c;
+	string line;
 
 	ifstream myfile(pName);
 	
 	if(myfile.is_open()){
 		while(!myfile.eof()){
-//			if(fin.peek() == -1)
-//				break;
-
-			c = fin.get();
-
-			if(c != '\n')
-				num++;
-		}
+                        getline(myfile, line);
+                        num+=line.length();
+                }
 	}
 	cout<<num<<" Characters\n";
 }
